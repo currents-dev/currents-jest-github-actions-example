@@ -34,5 +34,7 @@ jobs:
 
       - name: Upload test results to Currents.dev
         # CURRENTS_RECORD_KEY is a secret stored in the repository settings
+        env:
+          CURRENTS_RECORD_KEY: ${{ secrets.CURRENTS_RECORD_KEY }}
         run: |
           npx currents upload --project-id mdXsz8 --ci-build-id ${{ github.repository }}-${{ github.run_id }}-${{ github.run_attempt }}
